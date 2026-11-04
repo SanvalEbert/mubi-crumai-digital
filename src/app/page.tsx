@@ -4,9 +4,10 @@ import { redirect } from 'next/navigation';
 import Experience from '@/components/Experience';
 
 export default function Home() {
-  // O ZIP aprovado pela cliente é a fonte de verdade da apresentação.
-  // Sem o ZIP, preservamos a versão antiga para não quebrar o site.
-  if (existsSync(join(process.cwd(), 'public', 'apresentacao', 'index.html'))) {
+  // Independent design preview; main branch and production remain unchanged.
+  const v2 = join(process.cwd(),'public','v2','index.html');
+  if (existsSync(v2)) redirect('/v2/index.html');
+  if (existsSync(join(process.cwd(),'public','apresentacao','index.html'))) {
     redirect('/apresentacao/index.html');
   }
   return <Experience />;
