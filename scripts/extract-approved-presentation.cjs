@@ -5,7 +5,8 @@ const path = require('node:path');
 const zlib = require('node:zlib');
 
 const project = path.resolve(__dirname, '..');
-const archive = path.join(project, 'Mubi-Crumai-Versao-Publicacao-UX.zip');
+const approvedName = ['Mubi-Crumai-Versao-Publicacao-UX.zip', 'Mubi-Crumai-Versao-Publicacao-UX (3).zip'].find(name => fs.existsSync(path.join(project, name)));
+const archive = path.join(project, approvedName || 'Mubi-Crumai-Versao-Publicacao-UX.zip');
 const destination = path.join(project, 'public', 'apresentacao');
 if (!fs.existsSync(archive)) {
   console.log('ZIP aprovado ainda não enviado ao GitHub. Mantendo a página existente.');
