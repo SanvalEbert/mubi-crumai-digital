@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node scripts/extract-approved-presentation.cjs && next build",
+    "build": "node scripts/extract-approved-presentation.cjs && node scripts/extract-design-v2.cjs && next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
